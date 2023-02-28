@@ -128,8 +128,15 @@ data1 <- data.frame(data)
 p <- plot_ly(data1, x=~X[,1], y=~X[,2], 
              z=~X[,3], color=~true_clusters) %>%
   add_markers(size=6) 
+layout(
+    scene = list(
+      xaxis = list(title = "Eigenvector 1"),
+      yaxis = list(title = "Eigenvector 2"),
+      zaxis = list(title = "Eigenvector 3")
+  )
+)  
+p <- p %>% hide_colorbar()
 print(p)
-
 
 
 colors <- c("red", "blue", "darkgreen")
