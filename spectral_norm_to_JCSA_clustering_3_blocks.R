@@ -176,8 +176,8 @@ library(aricode)
 true_clusters <- rep(1:K, times = n)
 nmi_score_4 <- NMI(true_clusters, kmeans_clusters_4$cluster)
 
-# Print normalized mutual information score two blocks
-print(paste0("Normalized Mutual Information score two clusters: ", nmi_score_4))
+# Print normalized mutual information score 4 blocks
+print(paste0("Normalized Mutual Information score four clusters: ", nmi_score_4))
 colors4 <- c("red", "blue", "darkgreen","orange")
 plot(X_4[,1:2],col = colors4[kmeans_clusters_4$cluster], pch = 16,xlab = " ",ylab = " ", main = "")
 
@@ -196,8 +196,8 @@ library(aricode)
 true_clusters <- rep(1:K, times = n)
 nmi_score_5 <- NMI(true_clusters, kmeans_clusters_5$cluster)
 
-# Print normalized mutual information score two blocks
-print(paste0("Normalized Mutual Information score two clusters: ", nmi_score_5))
+# Print normalized mutual information score five blocks
+print(paste0("Normalized Mutual Information score five clusters: ", nmi_score_5))
 colors5 <- c("red", "blue", "darkgreen","orange","aquamarine")
 plot(X_5[,1:2],col = colors5[kmeans_clusters_5$cluster], pch = 16,xlab = " ",ylab = " ", main = "")
 
