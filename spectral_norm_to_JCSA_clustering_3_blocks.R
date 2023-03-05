@@ -142,3 +142,62 @@ print(p)
 colors <- c("red", "blue", "darkgreen")
 plot(X[,1:2],col = colors[true_clusters], pch = 16,xlab = " ",ylab = " ", main = "")
 
+################################################
+####NMI for 2 clusters
+# Cluster the network into two clusters using k-means
+K_2 <- 2
+embedding_vectors_2 <- eigen_vectors[, 1:K_2]
+embedding_vectors_2 <- apply(embedding_vectors_2, 2, function(x) x/sqrt(sum(x^2)))
+X_2 <- embedding_vectors_2
+kmeans_clusters_2 <- kmeans(X_2, K_2)
+# Compute normalized mutual information score
+library(aricode)
+true_clusters <- rep(1:K, times = n)
+nmi_score_2 <- NMI(true_clusters, kmeans_clusters_2$cluster)
+
+# Print normalized mutual information score two blocks
+print(paste0("Normalized Mutual Information score two clusters: ", nmi_score_2))
+colors2 <- c("red", "blue", "darkgreen")
+plot(X_2,col = colors2[kmeans_clusters_2$cluster], pch = 16,xlab = " ",ylab = " ", main = "")
+
+
+
+
+################################################
+####NMI for 4 clusters
+# Cluster the network into 4 clusters using k-means
+K_4 <- 4
+embedding_vectors_4 <- eigen_vectors[, 1:K_4]
+embedding_vectors_4 <- apply(embedding_vectors_4, 2, function(x) x/sqrt(sum(x^2)))
+X_4 <- embedding_vectors_4
+kmeans_clusters_4 <- kmeans(X_4, K_4)
+# Compute normalized mutual information score
+library(aricode)
+true_clusters <- rep(1:K, times = n)
+nmi_score_4 <- NMI(true_clusters, kmeans_clusters_4$cluster)
+
+# Print normalized mutual information score two blocks
+print(paste0("Normalized Mutual Information score two clusters: ", nmi_score_4))
+colors4 <- c("red", "blue", "darkgreen","orange")
+plot(X_4[,1:2],col = colors4[kmeans_clusters_4$cluster], pch = 16,xlab = " ",ylab = " ", main = "")
+
+
+######################
+################################################
+####NMI for 5 clusters
+# Cluster the network into 5 clusters using k-means
+K_5 <- 5
+embedding_vectors_5 <- eigen_vectors[, 1:K_5]
+embedding_vectors_5 <- apply(embedding_vectors_5, 2, function(x) x/sqrt(sum(x^2)))
+X_5 <- embedding_vectors_5
+kmeans_clusters_5 <- kmeans(X_5, K_5)
+# Compute normalized mutual information score
+library(aricode)
+true_clusters <- rep(1:K, times = n)
+nmi_score_5 <- NMI(true_clusters, kmeans_clusters_5$cluster)
+
+# Print normalized mutual information score two blocks
+print(paste0("Normalized Mutual Information score two clusters: ", nmi_score_5))
+colors5 <- c("red", "blue", "darkgreen","orange","aquamarine")
+plot(X_5[,1:2],col = colors5[kmeans_clusters_5$cluster], pch = 16,xlab = " ",ylab = " ", main = "")
+
