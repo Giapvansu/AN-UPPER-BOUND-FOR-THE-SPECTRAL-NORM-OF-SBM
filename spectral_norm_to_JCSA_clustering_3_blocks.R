@@ -1,7 +1,10 @@
 library(Matrix)
 library(klaR)
 library(sbm)
-# Set parameters
+library(Rlab)
+library(aricode)
+library(plotly)
+# Set adjacency matrix
 A <- function(n1,p1,p2,p3,p12,p13,p23,alpha1,alpha2,alpha3){
   n1
   p1
@@ -63,7 +66,7 @@ A_hat <- function(n1,p1,p2,p3,p12,p13,p23,alpha1,alpha2,alpha3){
   A_hat <- gamma*A
   return(A_hat)
 }
-
+# Set parameters
 n1 <- 1000
 p12 <-0.005
 p13 <- 0.003
