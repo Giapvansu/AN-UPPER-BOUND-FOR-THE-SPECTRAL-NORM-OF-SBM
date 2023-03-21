@@ -174,7 +174,7 @@ data1 <- data.frame(data)
 
 
 p <- plot_ly(data1, x=~X[,2], y=~X[,3], 
-             z=~X[,4], color=~true_clusters) %>%
+             z=~X[,4], color=~true_clusters,,size=10) %>%
   #add_markers(size=6) 
   layout(
     scene = list(
