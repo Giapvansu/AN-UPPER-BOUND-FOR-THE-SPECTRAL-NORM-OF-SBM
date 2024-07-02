@@ -123,13 +123,14 @@ plot(graph,main=("SBM graph with 3 communities"))
 #plot 3 eigenvectors
 require(plotly)
 
-data <- cbind(X,n)
+data <- cbind(X)
 
-data1 <- data.frame(data)
-
-
+data1 <- data.frame(X)
+col2rgb(colors)
+colors <- c("red", "blue", "darkgreen")
 p <- plot_ly(data1, x=~X[,1], y=~X[,2], 
-             z=~X[,3], color=~true_clusters) %>%
+             z=~X[,3], color=~kmeans_clusters$cluster,
+             colors =colors, %>%
   add_markers(size=6) 
 layout(
     scene = list(
@@ -142,8 +143,8 @@ p <- p %>% hide_colorbar()
 print(p)
 
 
-colors <- c("red", "blue", "darkgreen")
-plot(X[,1:2],col = colors[true_clusters], pch = 16,xlab = " ",ylab = " ", main = "")
+#colors <- c("red", "blue", "darkgreen")
+#plot(X[,1:2],col = colors[true_clusters], pch = 16,xlab = " ",ylab = " ", main = "")
 
 ################################################
 ####NMI for 2 clusters
